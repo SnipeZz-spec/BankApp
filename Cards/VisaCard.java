@@ -6,4 +6,5 @@ public class VisaCard extends GeneralCard {
         super(name, number, month, year, balance);
     }
 
+
 }

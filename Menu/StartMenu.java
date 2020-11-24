@@ -7,7 +7,6 @@ import Cards.MaestroCard;
 import Cards.VisaCard;
 
 
-
 public class StartMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

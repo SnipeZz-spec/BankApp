@@ -22,6 +22,7 @@ public class MenuList {
         }
     }
 
+
     public void viewMenu2() {
         var menu2 = new ArrayList<>();
         menu2.add("1.Перевод");

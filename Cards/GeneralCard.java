@@ -8,6 +8,7 @@ public class GeneralCard {
     private int year;
     private double balance;
 
+
     public GeneralCard(String name, int number, int month, int year, double balance) {
         this.name = name;
         this.number = number;

@@ -9,7 +9,6 @@ public class Bank {
     private List<GeneralCard> allCards;
 
 
-
     public Bank() {
         this.allCards = new ArrayList<>();
     }
