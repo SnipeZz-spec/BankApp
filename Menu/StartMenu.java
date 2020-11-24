@@ -58,13 +58,16 @@ public class StartMenu {
                             maestroCard.cardList();
                             System.out.println("С какой карты выполнить перевод?");
                             int numberFrom = sc.nextInt();
+                            int numberTo = sc.nextInt();
+
+
                             //Доделать перевод
                             //Мне кажется можно убрать немного лишней грязи
                             switch (numberFrom) {
                                 case (1):
                                     System.out.println("Введите сумму перевода: ");
                                     double sum = sc.nextDouble();
-                                    if (bank.transaction(987456123,123456789,0 )) {
+                                    if (bank.transaction(numberFrom,numberTo,sum )) {
                                         System.out.println("Перевод выполнен!");
                                     }
                                     else {
@@ -116,16 +119,21 @@ public class StartMenu {
                                     break;
                                 case (2):
                                     System.out.println("Вы выбрали раздел регулярных трат");
-                                    regularSpending.viewHash();
-                                    System.out.println("Какую из услуг вы бы хотели оплатить?");
-                                    int v6 = sc.nextInt();
-                                    switch (v6) {
-                                        case (1):
-                                            System.out.println("Вы выбрали оплату услуги ");
+                                    while (true) {
+                                        regularSpending.viewHash();
+                                        System.out.println("Какую из услуг вы бы хотели оплатить?");
+                                        int v6 = sc.nextInt();
+                                        if (!regularSpending.spendingMap.containsKey(v6)) {
+                                            //
+                                            continue;
+                                        }
+                                        double ammount = regularSpending.spendingMap.get(v6);
+
                                     }
 
                             }
-
+                        case 'q':
+                            break;
                     }
             }
 
