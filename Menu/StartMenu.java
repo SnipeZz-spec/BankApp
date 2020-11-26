@@ -165,6 +165,7 @@ public class StartMenu  {
                                                     System.out.println("Выберите другую карту");
                                                     continue;
                                                 }
+                                                System.out.println("Операция выполненна успешно");
                                                 double amount = visaCard.isBalance() - regularSpending.spendingMap.get(v6);
                                                 break;
                                             case (2):
@@ -176,6 +177,7 @@ public class StartMenu  {
                                                 double amount2 = maestroCard.isBalance() - regularSpending.spendingMap.get(v6);
                                                 break;
                                         }
+                                        break;
                                     }
                                 case (0):
                                     break;
@@ -187,6 +189,7 @@ public class StartMenu  {
                     }
                     break;
                 case (3):
+
                     System.out.println("Вы выбрали ");
             }
 
