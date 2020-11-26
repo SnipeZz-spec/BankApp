@@ -1,5 +1,7 @@
 package Cards;
 
+import java.util.Scanner;
+
 public class GeneralCard {
 
     private String name;

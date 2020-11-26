@@ -24,11 +24,19 @@ public class StartMenu {
 
             menuList.viewMenu1();
             System.out.println("Выберите действие, которое хотите выполнить: ");
+            while (!sc.hasNextInt()){
+                System.out.println("Выберите действие, которое хотите выполнить: ");
+                sc.next();
+            }
             int v = sc.nextInt();
             switch (v) {
                 case (1):
                     System.out.println("Доступные карты: " + "1." + maestroCard.getName() + "\n2." + visaCard.getName() + "\n3.По всем");
                     System.out.println("Информацию по какой карте вы хотите получить?");
+                    while (!sc.hasNextInt()){
+                        System.out.println("Информацию по какой карте вы хотите получить?");
+                        sc.next();
+                    }
                     int v1 = sc.nextInt();
                     switch (v1) {
                         case (1):
@@ -49,47 +57,51 @@ public class StartMenu {
                     System.out.println("-----------------------------------");
                     menuList.viewMenu2();
                     System.out.println("Выберите операцию");
+                    while (!sc.hasNextInt()){
+                        System.out.println("Выберите операцию");
+                        sc.next();
+                    }
                     int v3 = sc.nextInt();
-                    switch (v3){
+                    switch (v3) {
                         case (1):
                             System.out.println("Вы выбрали операцию перевода");
                             System.out.println("-----------------------------------");
                             visaCard.cardList();
                             maestroCard.cardList();
-                            System.out.println("С какой карты выполнить перевод?");
-                            int numberFrom = sc.nextInt();
-                            int numberTo = sc.nextInt();
-
-
-                            //Доделать перевод
-                            //Мне кажется можно убрать немного лишней грязи
-                            switch (numberFrom) {
-                                case (1):
+                                System.out.println("С какой карты выполнить перевод?");
+                                while (!sc.hasNextInt()) {
+                                    System.out.println("Введите карту с которой будет выполнен перевод: ");
+                                    sc.next();
+                                }
+                                int numberFrom = sc.nextInt();
+                                System.out.println("На какую карту выполнить перевод?");
+                                while (!sc.hasNextInt()) {
+                                    System.out.println("Введите карту на которую надо перевести: ");
+                                    sc.next();
+                                }
+                                int numberTo = sc.nextInt();
+                                System.out.println("Введите сумму перевода: ");
+                                while (!sc.hasNextDouble()) {
                                     System.out.println("Введите сумму перевода: ");
-                                    double sum = sc.nextDouble();
-                                    if (bank.transaction(numberFrom,numberTo,sum )) {
-                                        System.out.println("Перевод выполнен!");
-                                    }
-                                    else {
-                                        System.out.println("Перевод не выполнен! Недостаточно средств.");
-                                    }
-                                    break;
-                                case (2):
-                                    System.out.println("Введите сумму перевода: ");
-                                    if (bank.transaction(123456789, 987456123, 0)) {
-                                        System.out.println("Перевод выполнен!");
-                                    }
-                                    else {
-                                        System.out.println("Перевод не выполнен! Недостаточно средств.");
-                                    }
-                                    break;
-                            }
+                                    sc.next();
+                                }
+                                double sum = sc.nextDouble();
+                                if (bank.transaction(numberFrom, numberTo, sum)) {
+                                    System.out.println("Перевод выполнен!");
+                                } else {
+                                    System.out.println("Перевод не выполнен! Недостаточно средств.");
+                                }
+                            break;
                             //операция оплаты
                         case (2):
                             System.out.println("Вы выбрали операцию оплаты");
                             System.out.println("-----------------------------------");
                             menuList.viewMenu3();
                             System.out.println("Какой вид оплаты вы хотите провести?");
+                            while (!sc.hasNextInt()){
+                                System.out.println("Какой вид оплаты вы хоитите произвести?");
+                                sc.next();
+                            }
                             int v4 = sc.nextInt();
                             switch (v4) {
                                 case (1):
@@ -98,14 +110,21 @@ public class StartMenu {
                                     System.out.println("Введите назначение счета: ");
                                     String purchase = sc.nextLine();
                                     System.out.println("Введите сумму счета: ");
-                                    double sum = sc.nextDouble();
+                                    while (!sc.hasNextDouble()){
+                                        System.out.println("Введите сумму счета: ");
+                                        sc.next();
+                                    }
+                                    sum = sc.nextDouble();
                                     menu4.add(purchase + sum);
                                     System.out.println("-----------------------------------");
                                     visaCard.cardList();
                                     maestroCard.cardList();
                                     System.out.println("С какой карты выполнить оплату?");
+                                    while (!sc.hasNextInt()){
+                                        System.out.println("Выберите карту с которой произвести оплату");
+                                        sc.next();
+                                    }
                                     int v5 = sc.nextInt();
-
                                     //вот тут вычисление суммы, спросить правильно ли?
                                     //добавить проверку на наличие средств
                                     switch (v5) {
@@ -122,15 +141,17 @@ public class StartMenu {
                                     while (true) {
                                         regularSpending.viewHash();
                                         System.out.println("Какую из услуг вы бы хотели оплатить?");
+                                        while (!sc.hasNextInt()){
+                                            System.out.println("Укажите номер услуги: ");
+                                            sc.next();
+                                        }
                                         int v6 = sc.nextInt();
                                         if (!regularSpending.spendingMap.containsKey(v6)) {
                                             //
                                             continue;
                                         }
-                                        double ammount = regularSpending.spendingMap.get(v6);
-
+                                        double amount = regularSpending.spendingMap.get(v6);
                                     }
-
                             }
                         case 'q':
                             break;
