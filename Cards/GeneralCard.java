@@ -1,5 +1,6 @@
 package Cards;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class GeneralCard {
@@ -68,16 +69,13 @@ public class GeneralCard {
     public boolean makeTransaction(GeneralCard to, double sum){
         if (to == null){
             System.out.println("Карта не должна быть равна null");
-        }
-        else {
             return false;
         }
-
         if (balance < sum){
             return false;
         }
         to.applyTransaction(sum);
-        return false;
+        return true;
     }
 
     public void applyTransaction(double sum){
@@ -100,8 +98,14 @@ public class GeneralCard {
         return false;
     }
 
-    public void payTransaction(double sum){
+    public boolean payTransaction(double sum){
+        if (balance - sum < 0){
+            System.out.println("Недостаточно средств на карте");
+            return false;
+        }
         this.balance -= sum;
+        System.out.println("Операция выыполнена!");
+        return true;
     }
 
     public void cardList(){

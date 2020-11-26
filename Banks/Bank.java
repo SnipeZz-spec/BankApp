@@ -2,10 +2,14 @@ package Banks;
 
 import Cards.GeneralCard;
 
+import javax.print.DocFlavor;
+import javax.swing.text.html.Option;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class Bank {
+public class Bank implements Serializable {
     private List<GeneralCard> allCards;
 
 
@@ -20,8 +24,13 @@ public class Bank {
     public boolean transaction(int numberFrom, int numberTo, double sumToTransaction) {
         var cardFrom = getCard(numberFrom);
         var cardTo = getCard(numberTo);
+        if (cardFrom.isEmpty() | cardTo.isEmpty()) {
+            System.out.println("Данные карты не найдены. Повторите ввод");
+            return false;
+        }
 
-        return cardFrom.makeTransaction(cardTo, sumToTransaction);
+
+        return cardFrom.get().makeTransaction(cardTo.get(), sumToTransaction);
     }
 
 //    public boolean pay(int numberFrom, double sumToPay) {
@@ -30,12 +39,12 @@ public class Bank {
 //        return cardFrom.makePay();
 //    }
 
-    private GeneralCard getCard(int number) {
+    private Optional<GeneralCard> getCard(int number) {
         var curCard = allCards.stream().filter(c -> c.getNumber() == number).findFirst();
         if (curCard.isEmpty()){
-            throw new IllegalArgumentException("Такая карта не найдена");
+            return Optional.empty();
         }
-        return curCard.get();
+        return Optional.of(curCard.get());
     }
 
 
