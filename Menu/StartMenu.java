@@ -7,7 +7,7 @@ import Cards.MaestroCard;
 import Cards.VisaCard;
 
 
-public class StartMenu {
+public class StartMenu  {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в бето-программу, Player One!");
         System.out.println("----------------------------------------------");
@@ -17,7 +17,7 @@ public class StartMenu {
             BankApp.Menu.MenuList menuList = new BankApp.Menu.MenuList();
             RegularSpendingHash regularSpending = new RegularSpendingHash();
             Bank bank = new Bank();
-            var visaCard = new VisaCard("Visa",987456123,05, 19, 0);
+            var visaCard = new VisaCard("Visa",987456123,05, 19, 10000);
             var maestroCard = new MaestroCard("Maestro",123456789, 23,23, 0);
             bank.addCard(visaCard);
             bank.addCard(maestroCard);
@@ -31,7 +31,7 @@ public class StartMenu {
             int v = sc.nextInt();
             switch (v) {
                 case (1):
-                    System.out.println("Доступные карты: " + "1." + maestroCard.getName() + "\n2." + visaCard.getName() + "\n3.По всем");
+                    System.out.println("Доступные карты: " + "\n1." + visaCard.getName() + "\n2." + maestroCard.getName() + "\n3.По всем" + "\n0.Выход");
                     System.out.println("Информацию по какой карте вы хотите получить?");
                     while (!sc.hasNextInt()){
                         System.out.println("Информацию по какой карте вы хотите получить?");
@@ -40,16 +40,21 @@ public class StartMenu {
                     int v1 = sc.nextInt();
                     switch (v1) {
                         case (1):
-                            visaCard.toString();
+                            System.out.println(visaCard.toString());
                             break;
                         case (2):
-                            maestroCard.toString();
+                            System.out.println(maestroCard.toString());
                             break;
                         case (3):
-                            visaCard.toString();
+                            System.out.println(visaCard.toString());
                             System.out.println("-----------------------------------");
-                            maestroCard.toString();
+                            System.out.println(maestroCard.toString());
                             break;
+                        case (0):
+                            break;
+                        default:
+                            System.out.println("Повторите ввод");
+                            continue;
                     }
                     break;
                 case(2):
@@ -91,7 +96,7 @@ public class StartMenu {
                                 } else {
                                     System.out.println("Перевод не выполнен! Недостаточно средств.");
                                 }
-                            break;
+                                break;
                             //операция оплаты
                         case (2):
                             System.out.println("Вы выбрали операцию оплаты");
@@ -109,13 +114,12 @@ public class StartMenu {
                                     var menu4 = new ArrayList<>();
                                     System.out.println("Введите назначение счета: ");
                                     String purchase = sc.nextLine();
-                                    System.out.println("Введите сумму счета: ");
                                     while (!sc.hasNextDouble()){
                                         System.out.println("Введите сумму счета: ");
                                         sc.next();
                                     }
-                                    sum = sc.nextDouble();
-                                    menu4.add(purchase + sum);
+                                    double sum2 = sc.nextDouble();
+                                    menu4.add(purchase + sum2);
                                     System.out.println("-----------------------------------");
                                     visaCard.cardList();
                                     maestroCard.cardList();
@@ -129,10 +133,10 @@ public class StartMenu {
                                     //добавить проверку на наличие средств
                                     switch (v5) {
                                         case (1):
-                                            visaCard.payTransaction(sum);
+                                            visaCard.payTransaction(sum2);
                                             break;
                                         case (2):
-                                            maestroCard.payTransaction(sum);
+                                            maestroCard.payTransaction(sum2);
                                             break;
                                     }
                                     break;
@@ -141,21 +145,49 @@ public class StartMenu {
                                     while (true) {
                                         regularSpending.viewHash();
                                         System.out.println("Какую из услуг вы бы хотели оплатить?");
-                                        while (!sc.hasNextInt()){
-                                            System.out.println("Укажите номер услуги: ");
-                                            sc.next();
-                                        }
-                                        int v6 = sc.nextInt();
+                                        String v6 = sc.nextLine();
                                         if (!regularSpending.spendingMap.containsKey(v6)) {
-                                            //
+                                            System.out.println("Выбранной вами услуги нет");
                                             continue;
                                         }
-                                        double amount = regularSpending.spendingMap.get(v6);
+                                        visaCard.cardList();
+                                        maestroCard.cardList();
+                                        System.out.println("С какой карты вы хотите произвести оплату");
+                                        while (!sc.hasNextInt()){
+                                            System.out.println("Введите карту для оплаты");
+                                            sc.next();
+                                        }
+                                        v5 = sc.nextInt();
+                                        switch (v5) {
+                                            case (1):
+                                                if (visaCard.isBalance() < regularSpending.spendingMap.get(v6)) {
+                                                    System.out.println("На данной карте недостаточно средств");
+                                                    System.out.println("Выберите другую карту");
+                                                    continue;
+                                                }
+                                                double amount = visaCard.isBalance() - regularSpending.spendingMap.get(v6);
+                                                break;
+                                            case (2):
+                                                if (maestroCard.isBalance() < regularSpending.spendingMap.get(v6)) {
+                                                    System.out.println("На данной карте недостаточно средств");
+                                                    System.out.println("Выберите другую карту");
+                                                    continue;
+                                                }
+                                                double amount2 = maestroCard.isBalance() - regularSpending.spendingMap.get(v6);
+                                                break;
+                                        }
                                     }
+                                case (0):
+                                    break;
+                                default:
+                                    System.out.println("Повторите ввод");
+                                    continue;
                             }
-                        case 'q':
-                            break;
+                        break;
                     }
+                    break;
+                case (3):
+                    System.out.println("Вы выбрали ");
             }
 
 

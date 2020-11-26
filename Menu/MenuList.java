@@ -27,6 +27,7 @@ public class MenuList {
         var menu2 = new ArrayList<>();
         menu2.add("1.Перевод");
         menu2.add("2.Оплата");
+        menu2.add("0.Выход");
 
         for (var s : menu2) {
             System.out.println(s);
