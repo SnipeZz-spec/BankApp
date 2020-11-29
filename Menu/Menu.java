@@ -21,11 +21,28 @@ public class Menu {
             System.out.println("Введите действие, которое хотите выполнить: ");
             while (!sc.hasNextInt()) {
                 System.out.println("Введено некорректное значение! Повторите ввод.");
+                sc.next();
             }
             int v = sc.nextInt();
             switch (v) {
                 case (1):
                     methods.informationOfCard();
+                    break;
+                case (2):
+                    System.out.println("-----------------------------------");
+                    System.out.println("-------------Операции--------------");
+                    menuList.viewMenu2();
+                    System.out.println("--------Выберите операцию---------");
+                    while (!sc.hasNextInt()) {
+                        System.out.println("Введено некорректное значение! Повторите ввод.");
+                        sc.next();
+                    }
+                    int v2 = sc.nextInt();
+                    switch (v2) {
+                        case (1):
+
+                    }
+
                     break;
             }
 

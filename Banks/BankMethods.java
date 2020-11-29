@@ -2,6 +2,7 @@ package Banks;
 
 import Cards.MaestroCard;
 import Cards.VisaCard;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.Scanner;
 
@@ -37,8 +38,25 @@ public class BankMethods {
             case (0):
                 break;
         }
+    }
 
-
-
+    public void transaction() {
+        System.out.println("Вы выбрали операцию перевода");
+        bank.getAllCards().get(1).cardList();
+        bank.getAllCards().get(2).cardList();
+        System.out.println("С какой карты выполнить перевод?");
+        while (!sc.hasNextInt()) {
+            System.out.println("Некорректный ввод! Повторите попытку");
+            sc.next();
+        }
+        int v = sc.nextInt();
+        switch (v) {
+            case (1):
+                System.out.println("Введите сумму перевода");
+                while (!sc.hasNextDouble()) {
+                    System.out.println("Некорректное значение!");
+                }
+                if (bank.getAllCards().get(1))
+        }
     }
 }
