@@ -26,15 +26,15 @@ public class BankMethods {
         int v = sc.nextInt();
         switch (v) {
             case (1):
-                System.out.println(bank.getAllCards().get(1));
+                System.out.println(bank.getAllCards().get(0));
                 break;
             case (2):
-                System.out.println(bank.getAllCards().get(2));
+                System.out.println(bank.getAllCards().get(1));
                 break;
             case (3):
-                System.out.println(bank.getAllCards().get(1).toString());
+                System.out.println(bank.getAllCards().get(0).toString());
                 System.out.println("-----------------------------------");
-                System.out.println(bank.getAllCards().get(2).toString());
+                System.out.println(bank.getAllCards().get(1).toString());
                 break;
             case (0):
                 break;
@@ -63,7 +63,8 @@ public class BankMethods {
                     System.out.println("Операция не выполнена! Недостаточно средств.");
                     break;
                 }
-                bank.getAllCards().get(1).isBalance() = bank.getAllCards().se;
-//        }
+                bank.getAllCards().get(1).setBalance(bank.getAllCards().get(1).isBalance() - sum);
+                bank.getAllCards().get(2).setBalance(bank.getAllCards().get(2).isBalance() + sum);
+        }
     }
 }
