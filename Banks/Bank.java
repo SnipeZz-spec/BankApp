@@ -27,7 +27,6 @@ public class Bank implements Serializable {
 ////        serializable.deSerialization("Bank.txt");
 //    }
     public void addToList() {
-
         allCards.add(new VisaCard("Visa",987456123,5, 19, 10000));
         allCards.add(new MaestroCard("Maestro",123456789, 3,23, 0));
     }
@@ -46,6 +45,7 @@ public class Bank implements Serializable {
     }
 
     public boolean transaction(int numberFrom, int numberTo, double sumToTransaction) {
+
         var cardFrom = getCard(numberFrom);
         var cardTo = getCard(numberTo);
         if (cardFrom.isEmpty() | cardTo.isEmpty()) {

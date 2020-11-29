@@ -2,7 +2,7 @@ package Banks;
 
 import Cards.MaestroCard;
 import Cards.VisaCard;
-import jdk.swing.interop.SwingInterOpUtils;
+
 
 import java.util.Scanner;
 
@@ -16,6 +16,7 @@ public class BankMethods {
 
 
     public void informationOfCard() {
+        bank.addToList();
         System.out.println("Доступные карты: " + "\n1." + bank.getAllCards().get(0).getName() + "\n2. " + bank.getAllCards().get(1).getName() + "\nПо всем. " + "\n0.Выход");
         System.out.println("Информацию по какой карте вы хотите получить?");
         while (!sc.hasNextInt()) {
@@ -25,10 +26,10 @@ public class BankMethods {
         int v = sc.nextInt();
         switch (v) {
             case (1):
-                System.out.println(bank.getAllCards().get(1).toString());
+                System.out.println(bank.getAllCards().get(1));
                 break;
             case (2):
-                System.out.println(bank.getAllCards().get(2).toString());
+                System.out.println(bank.getAllCards().get(2));
                 break;
             case (3):
                 System.out.println(bank.getAllCards().get(1).toString());
@@ -55,8 +56,14 @@ public class BankMethods {
                 System.out.println("Введите сумму перевода");
                 while (!sc.hasNextDouble()) {
                     System.out.println("Некорректное значение!");
+                    sc.next();
                 }
-                if (bank.getAllCards().get(1))
-        }
+                double sum = sc.nextDouble();
+                if (bank.getAllCards().get(1).isBalance() < sum) {
+                    System.out.println("Операция не выполнена! Недостаточно средств.");
+                    break;
+                }
+                bank.getAllCards().get(1).isBalance() = bank.getAllCards().se;
+//        }
     }
 }
