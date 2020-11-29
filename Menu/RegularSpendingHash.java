@@ -4,7 +4,7 @@ package Menu;
 import java.util.HashMap;
 
 public class RegularSpendingHash {
-    HashMap<String, Double> spendingMap = new HashMap<>();
+    public HashMap<String, Double> spendingMap = new HashMap<>();
 
     public void viewHash(){
         spendingMap.put("Интернет", (double) 900);

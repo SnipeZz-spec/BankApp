@@ -26,13 +26,18 @@ public class Menu {
             int v = sc.nextInt();
             switch (v) {
                 case (1):
+                    System.out.println("---------------------------------------");
+                    System.out.println("---------------Информация--------------");
+                    System.out.println("---------------------------------------");
+
                     methods.informationOfCard();
                     break;
                 case (2):
-                    System.out.println("-----------------------------------");
-                    System.out.println("-------------Операции--------------");
+                    System.out.println("---------------------------------------");
+                    System.out.println("---------------Операции----------------");
+                    System.out.println("-------Вы выбрали раздел операций------");
                     menuList.viewMenu2();
-                    System.out.println("--------Выберите операцию---------");
+                    System.out.println("-----------Выберите операцию-----------");
                     while (!sc.hasNextInt()) {
                         System.out.println("Введено некорректное значение! Повторите ввод.");
                         sc.next();
@@ -40,10 +45,17 @@ public class Menu {
                     int v2 = sc.nextInt();
                     switch (v2) {
                         case (1):
-
+                            methods.transaction();
+                            break;
+                        case (2):
+                            methods.payOperation();
+                            break;
                     }
-
                     break;
+                case (3):
+                    System.out.println("---------------------------------------");
+                    System.out.println("-----------Пополнение карты------------");
+                    methods.replenishmentCard();
             }
 
 
