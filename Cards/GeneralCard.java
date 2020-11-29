@@ -1,5 +1,6 @@
 package Cards;
 
+import java.io.Serializable;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -79,7 +80,7 @@ public class GeneralCard {
     }
 
     public void applyTransaction(double sum){
-        this.balance += sum;
+        this.balance = isBalance() +  sum;
     }
 
     //методы операции оплаты
@@ -103,15 +104,14 @@ public class GeneralCard {
             System.out.println("Недостаточно средств на карте");
             return false;
         }
-        this.balance -= sum;
-        System.out.println("Операция выыполнена!");
+        this.balance = isBalance() - sum;
+        System.out.println("Операция выполнена!");
         return true;
     }
 
     public void cardList(){
         System.out.println("Карта: " + name + " " + number);
     }
-
 
 
 }
