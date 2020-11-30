@@ -11,9 +11,10 @@ public class Menu {
         BankApp.Menu.MenuList menuList = new MenuList();
         BankMethods methods = new BankMethods();
         Bank bank = new Bank();
+        bank.addToList();
 
 
-        System.out.println("Добро пожаловать в бето-программу, Player One!");
+        System.out.println("Добро пожаловать в бета-программу, Player One!");
         System.out.println("----------------------------------------------");
 
 
@@ -46,17 +47,17 @@ public class Menu {
                     int v2 = sc.nextInt();
                     switch (v2) {
                         case (1):
-                            methods.transaction();
+                            methods.transaction(bank);
                             break;
                         case (2):
-                            methods.payOperation();
+                            methods.payOperation(bank);
                             break;
                     }
                     break;
                 case (3):
                     System.out.println("---------------------------------------");
                     System.out.println("-----------Пополнение карты------------");
-                    methods.replenishmentCard();
+                    methods.replenishmentCard(bank);
             }
 
 

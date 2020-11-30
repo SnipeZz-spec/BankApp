@@ -16,11 +16,6 @@ public class BankMethods {
     HashMap<String, Double> onetimePayment = new HashMap<>();
 
 
-//    VisaCard visaCard = new VisaCard("Visa",987456123,05, 19, 10000);
-//    MaestroCard maestroCard = new MaestroCard("Maestro",123456789, 23,23, 0);
-
-
-
     public void informationOfCard(Bank bank) {
         System.out.println("Доступные карты: " + "\n1." + bank.getAllCards().get(0).getName() + "\n2. " + bank.getAllCards().get(1).getName() + "\n3.По всем. " + "\n0.Выход");
         System.out.println("Информацию по какой карте вы хотите получить?");
@@ -47,7 +42,7 @@ public class BankMethods {
         System.out.println("---------------------------------------");
     }
 
-    public void transaction() {
+    public void transaction(Bank bank) {
         bank.addToList();
         System.out.println("Вы выбрали операцию перевода");
         System.out.println("---------------------------------------");
@@ -98,7 +93,7 @@ public class BankMethods {
         System.out.println("---------------------------------------");
     }
 
-    public void payOperation(){
+    public void payOperation(Bank bank){
         bank.addToList();
         BankApp.Menu.MenuList menuList = new MenuList();
         RegularSpendingHash spendingHash = new RegularSpendingHash();
@@ -194,7 +189,7 @@ public class BankMethods {
         System.out.println("---------------------------------------");
     }
 
-    public void replenishmentCard (){
+    public void replenishmentCard (Bank bank){
         System.out.println("Вы выбрали раздел пополнения карт");
         System.out.println("---------------------------------------");
         bank.getAllCards().get(0).cardList();

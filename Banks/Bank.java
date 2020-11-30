@@ -6,6 +6,7 @@ import Cards.VisaCard;
 
 import javax.print.DocFlavor;
 import javax.swing.text.html.Option;
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,13 @@ public class Bank implements Serializable {
     public void addToList() {
         allCards.add(new VisaCard("Visa",987456123,5, 19, 10000));
         allCards.add(new MaestroCard("Maestro",123456789, 3,23, 0));
+
+        File file = new File("BankList.txt");
+        if (!file.isFile()) {
+            serializable.serialization(allCards, "BankList.txt");
+        } else {
+            serializable.deSerialization("BankList.txt");
+        }
     }
 
 
