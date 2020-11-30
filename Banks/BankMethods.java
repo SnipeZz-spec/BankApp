@@ -21,8 +21,7 @@ public class BankMethods {
 
 
 
-    public void informationOfCard() {
-        bank.addToList();
+    public void informationOfCard(Bank bank) {
         System.out.println("Доступные карты: " + "\n1." + bank.getAllCards().get(0).getName() + "\n2. " + bank.getAllCards().get(1).getName() + "\n3.По всем. " + "\n0.Выход");
         System.out.println("Информацию по какой карте вы хотите получить?");
         while (!sc.hasNextInt()) {

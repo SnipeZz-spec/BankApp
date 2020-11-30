@@ -1,6 +1,7 @@
 package Menu;
 
 import BankApp.Menu.MenuList;
+import Banks.Bank;
 import Banks.BankMethods;
 
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class Menu {
     public static void main(String[] args) {
         BankApp.Menu.MenuList menuList = new MenuList();
         BankMethods methods = new BankMethods();
+        Bank bank = new Bank();
 
 
         System.out.println("Добро пожаловать в бето-программу, Player One!");
@@ -29,8 +31,7 @@ public class Menu {
                     System.out.println("---------------------------------------");
                     System.out.println("---------------Информация--------------");
                     System.out.println("---------------------------------------");
-
-                    methods.informationOfCard();
+                    methods.informationOfCard(bank);
                     break;
                 case (2):
                     System.out.println("---------------------------------------");
