@@ -1,36 +1,24 @@
 package Banks;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 public class Serializable {
-
-    public void serialization(Object obj, String fileName) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            oos.writeObject(obj);
-        } catch (FileNotFoundException ex) {
-            System.err.println("Файл не найден:");
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            System.err.println("Ошибка входа/выхода:");
-            ex.printStackTrace();
+    final String fileName = "bank.txt";
+    public void serMethodWrite(){
+        try {
+            FileOutputStream outputStream = new FileOutputStream(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    public Object deSerialization(String fileName) {
-        Object obj = null;
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
-            obj = ois.readObject();
-        } catch (FileNotFoundException ex) {
-            System.err.println("Файл не найден:");
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            System.err.println("Ошибка входа/выхода:");
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            System.err.println("Класс не найден:");
-            ex.printStackTrace();
+    public void serMethodRead() {
+        try {
+            FileInputStream inputStream = new FileInputStream(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        return obj;
     }
-
 }

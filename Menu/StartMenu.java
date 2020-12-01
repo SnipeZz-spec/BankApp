@@ -36,7 +36,6 @@
 //                    while (!sc.hasNextInt()){
 //                        System.out.println("Информацию по какой карте вы хотите получить?");
 //                        sc.next();
-//
 //                    }
 //                    int v1 = sc.nextInt();
 //                    switch (v1) {
@@ -166,7 +165,6 @@
 //                                                    System.out.println("Выберите другую карту");
 //                                                    continue;
 //                                                }
-//                                                System.out.println("Операция выполненна успешно");
 //                                                double amount = visaCard.isBalance() - regularSpending.spendingMap.get(v6);
 //                                                break;
 //                                            case (2):
@@ -178,7 +176,6 @@
 //                                                double amount2 = maestroCard.isBalance() - regularSpending.spendingMap.get(v6);
 //                                                break;
 //                                        }
-//                                        break;
 //                                    }
 //                                case (0):
 //                                    break;
@@ -190,7 +187,6 @@
 //                    }
 //                    break;
 //                case (3):
-//
 //                    System.out.println("Вы выбрали ");
 //            }
 //

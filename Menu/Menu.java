@@ -61,7 +61,7 @@ public class Menu {
                     break;
                 case (4):
                     System.out.println("---------------------------------------");
-                    System.out.println("-----------Кошелек------------");
+                    System.out.println("---------------Кошелек-----------------");
                     methods.walletOperation(bank);
                     break;
                 case (0):
