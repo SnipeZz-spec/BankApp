@@ -318,20 +318,24 @@ public class BankMethods {
                         System.out.println("---------------------------------------");
                         break;
                     }
-                    viewShares();
-                    System.out.println("Выберите какую из акций вы бы хотели продать?");
-                    System.out.println("---------------------------------------");
-                    var str1 = sc.nextLine();
-                    while (!mySharesMap.containsKey(str1)){
-                        System.out.println("Такой акции не найдено. Повторите ввод");
-                        continue;
-                    }
-                    System.out.println("Продажа завершена успешно! На счет второй карты произведено зачисление");
-                    bank.getAllCards().get(2).setBalance(bank.getAllCards().get(2).isBalance() - (mySharesMap.get(str1) * 10));
-                    bank.getAllCards().get(1).setBalance(bank.getAllCards().get(1).isBalance() + (mySharesMap.get(str1) * 10));
-                    mySharesMap.remove(str1);
+                    System.out.println("Данный раздел находится на доработке. Приносим свои извинения.");
+                    System.out.println("Представте, что сегодня Воскресенье и вы отдыхаете на Карибах, а биржа просто закрыта в этот день! =)");
                     System.out.println("---------------------------------------");
                     break;
+//                    viewShares();
+//                    System.out.println("Выберите какую из акций вы бы хотели продать?");
+//                    System.out.println("---------------------------------------");
+//                    var str1 = sc.nextLine();
+//                    while (!mySharesMap.containsKey(str1)){
+//                        System.out.println("Такой акции не найдено. Повторите ввод");
+//                        continue;
+//                    }
+//                    System.out.println("Продажа завершена успешно! На счет второй карты произведено зачисление");
+//                    bank.getAllCards().get(2).setBalance(bank.getAllCards().get(2).isBalance() - (mySharesMap.get(str1) * 10));
+//                    bank.getAllCards().get(1).setBalance(bank.getAllCards().get(1).isBalance() + (mySharesMap.get(str1) * 10));
+//                    mySharesMap.remove(str1);
+//                    System.out.println("---------------------------------------");
+//                    break;
 
                 }
                 break;
