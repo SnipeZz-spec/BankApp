@@ -13,11 +13,8 @@ public class Menu {
         Bank bank = new Bank();
         bank.addToList();
 
-
         System.out.println("Добро пожаловать в бета-программу, Player One!");
         System.out.println("----------------------------------------------");
-
-
         while (true) {
             Scanner sc = new Scanner(System.in);
             menuList.viewMenu1();
@@ -52,17 +49,24 @@ public class Menu {
                         case (2):
                             methods.payOperation(bank);
                             break;
+                        case (3):
+                            methods.viewOnePayment();
+                            break;
                     }
                     break;
                 case (3):
                     System.out.println("---------------------------------------");
                     System.out.println("-----------Пополнение карты------------");
                     methods.replenishmentCard(bank);
+                    break;
+                case (4):
+                    System.out.println("---------------------------------------");
+                    System.out.println("-----------Кошелек------------");
+                    methods.walletOperation(bank);
+                    break;
+                case (0):
+                    break;
             }
-
-
-
-
         }
     }
 }

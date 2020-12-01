@@ -15,7 +15,8 @@ public class MenuList {
         menu1.add("1.Информация по картам и кошелькам");
         menu1.add("2.Операции");
         menu1.add("3.Пополнение карты");
-        menu1.add("4.Выход");
+        menu1.add("4.Работа с кошельком");
+        menu1.add("0.Выход");
 
         for (var s: menu1) {
             System.out.println(s);
@@ -27,6 +28,7 @@ public class MenuList {
         var menu2 = new ArrayList<>();
         menu2.add("1.Перевод");
         menu2.add("2.Оплата");
+        menu2.add("3.Список единоразовых покупок");
         menu2.add("0.Выход");
 
         for (var s : menu2) {
@@ -57,9 +59,22 @@ public class MenuList {
 
 
 
+
     //тут же метод показывающий эти траты
     public void viewPurchases() {
 
+    }
+
+    public void walletOperationList(){
+        var menu = new ArrayList<>();
+        menu.add("1.Купить акции");
+        menu.add("2.Продать акции");
+        menu.add("3.Мои бумаги");
+        menu.add("0.Выход");
+
+        for (var s: menu) {
+            System.out.println(s);
+        }
     }
 
     //под-лист регулярных счетов
